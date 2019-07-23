@@ -16,33 +16,28 @@ function writeEmployee(name, role, startDate, monthlyRate)
         '<tr><td>' + name + '</td>'
         + '<td>' + role + '</td>'
         + '<td>' + startDate + '</td>'
-        + '<td>' + 1 + '</td>'
+        + '<td>' + String(calculateMonthsWorked(startDate)) + '</td>'
         + '<td>' + monthlyRate + '</td>'
         + '<td>' + 1 + '</td></tr>'
     )
 
+    database.ref().push({
+        name: name,
+        role: role,
+        startDate: startDate,
+        monthlyRate: monthlyRate
+    })
 
-
-    // database.ref().push({
-    //     name: name,
-    //     role: role,
-    //     startDate: startDate,
-    //     monthlyRate: monthlyRate
-    // })
-
-    calculateMonthsWorked(String(startDate));
+    calculateMonthsWorked(startDate);
 }
 /
 function calculateMonthsWorked(startDate)
 {
-    var months = 1
-    
-    // var months = today - startDate;
-    var dd = String(today.getDate()).padStart(2, '0')
-    // console.log(today)
-    console.log(months);
+    var dateA = moment();
+    var dateB = moment(startDate, "YYYY-MM-DD");
+    var dateDiff = dateA.diff(dateB, "months");
 
-    return months
+    return dateDiff;
 }
 
 
@@ -50,6 +45,7 @@ function calculateTotalBilled(rate, months)
 {   
     console.log(userMonthlyRate);
 }
+
 
 
 $('#submit-employee').on('click', function(e)
@@ -83,3 +79,13 @@ firebase.initializeApp(firebaseConfig);
 
 
 database = firebase.database()
+<<<<<<< HEAD
+=======
+
+database.ref().on('child_added', function(snapshot)
+{
+    console.log(snapshot);
+});
+
+
+>>>>>>> e38d6b52c77cef98c1b24dba22b942fa25854564
