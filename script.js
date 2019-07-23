@@ -3,6 +3,7 @@ var userRole = '';
 var userStartDate = '';
 var userMonthlyRate = '';
 var today = new Date();
+//
 
 
 
@@ -31,7 +32,7 @@ function writeEmployee(name, role, startDate, monthlyRate)
 
     calculateMonthsWorked(String(startDate));
 }
-
+/
 function calculateMonthsWorked(startDate)
 {
     var months = 1
