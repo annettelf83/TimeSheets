@@ -79,8 +79,6 @@ firebase.initializeApp(firebaseConfig);
 
 
 database = firebase.database()
-<<<<<<< HEAD
-=======
 
 database.ref().on('child_added', function(snapshot)
 {
@@ -88,4 +86,3 @@ database.ref().on('child_added', function(snapshot)
 });
 
 
->>>>>>> e38d6b52c77cef98c1b24dba22b942fa25854564
