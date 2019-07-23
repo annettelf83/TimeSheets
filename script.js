@@ -10,32 +10,45 @@ var today = new Date();
 function writeEmployee(name, role, startDate, monthlyRate)
 {
     console.log(name, role, startDate, monthlyRate)
+
+    $('#table-body').append(
+        '<tr><td>' + name + '</td>'
+        + '<td>' + role + '</td>'
+        + '<td>' + startDate + '</td>'
+        + '<td>' + 1 + '</td>'
+        + '<td>' + monthlyRate + '</td>'
+        + '<td>' + 1 + '</td></tr>'
+    )
+
+
+
     // database.ref().push({
     //     name: name,
     //     role: role,
     //     startDate: startDate,
     //     monthlyRate: monthlyRate
     // })
+
+    calculateMonthsWorked(String(startDate));
 }
 
 function calculateMonthsWorked(startDate)
 {
-    var months = today - startDate;
-    var dd = String(today.getDate()).padStart(2, '0')
+    var months = 1
     
+    // var months = today - startDate;
+    var dd = String(today.getDate()).padStart(2, '0')
+    // console.log(today)
     console.log(months);
 
     return months
 }
 
 
-function calculateTotalBilled(userMonthlyRate)
-{
+function calculateTotalBilled(rate, months)
+{   
     console.log(userMonthlyRate);
 }
-
-
-
 
 
 $('#submit-employee').on('click', function(e)
@@ -54,9 +67,6 @@ $('#submit-employee').on('click', function(e)
     $('#rate').empty();
 
 });
-
-console.log("Executed last" + String(today.getDate()).padStart(2, '0'))
-
 
 var firebaseConfig = {
     apiKey: "AIzaSyA0m089wIXO9AD0TYfXilrFDhNj3SOxWi0",
