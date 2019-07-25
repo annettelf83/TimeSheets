@@ -30,7 +30,7 @@ function writeEmployee(name, role, startDate, monthlyRate)
 
     calculateMonthsWorked(startDate);
 }
-/
+
 function calculateMonthsWorked(startDate)
 {
     var dateA = moment();
